@@ -4,13 +4,13 @@ We will understand the basics of docker and learn to setup a simple app using do
 
 ### Chapter 1
 1. Containerization
-2. Container and image
-3. Container v/s Virtual Machine
+2. Container v/s Virtual Machine
+3. Container and image
 ### Chapter 2
 4. Docker intro
 5. Docker commands
-6. docker network, volume
-7. play with docker images and commands
+6. Docker network, volume
+7. Play with Docker images and commands
 ### Chapter 3
 8. Connect a sample app with containers
 9. Create Docker image (Dockerfile) 
