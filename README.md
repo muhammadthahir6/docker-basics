@@ -16,3 +16,5 @@ We will understand the basics of docker and learn to setup a simple app using do
 9. Create Docker image (Dockerfile) 
 10. docker-compose
 
+
+Happy Learning !!!
