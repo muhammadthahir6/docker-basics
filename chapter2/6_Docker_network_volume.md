@@ -27,3 +27,81 @@ docker run -d \
 docker volume rm my-vol
 
 ```
+
+## Bind Mounts
+
++ a file or directory on the host machine is mounted into a container. 
++ The file or directory is referenced by its absolute path on the host machine.
+
+```bash
+
+docker run -d \
+  --name mongo2 \
+  -v "$(pwd)"/mongoBindMount:/data/db \
+  -p 5009:27017 \
+  mongo:latest
+
+```
+
+## Docker Network
+
++ Networking enables communication to docker container(s).
++ Can connect between dockers
++ can connect to non-docker workloads
+
+### Types of network drivers
+ + bridge: The default network driver, used when applications run in standalone containers that need to communicate.
+ + host: use host network directly, remove isolation between container and host os
+ + Other types
+    + overlay
+    + macvlan
+    + Plugins
+
+```bash
+## list networks
+
+docker network ls
+
+## communicate between two containers using default bridge network
+
+## start 2 alpine containers
+
+docker run --name alpine1 -dit alpine
+docker run --name alpine1 -dit alpine
+
+## inspect default bridge and see containers array
+
+docker network inspect bridge
+
+## attach to containers
+
+docker attach alpine1
+
+## verify the ip address
+
+ip addr show
+
+## ping the other container
+
+ping <container alpine2 ip>
+
+
+```
+
+### Create a bridge network
+
+```bash
+## create network
+docker network --driver bridge alpine-net
+
+docker inspect alpine-net
+
+## run container with network
+
+docker run --name alpine1 --network alpine-net -dit alpine ash
+
+## connect to another network
+
+docker network connect bridge alpine1
+
+```
