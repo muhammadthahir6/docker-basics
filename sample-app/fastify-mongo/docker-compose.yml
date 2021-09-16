@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  mongo:
+    image: mongo
+    volumes: 
+      - ./mongoVolume:/data/db
+  fastify-app:
+    image: fastify-mongo:v1
+    environment: 
+      - MONGO_BASE=mongo
+    ports:
+      - '3000:3000'
+    depends_on: 
+      - mongo  
+
+networks:
+  default:
+    name: fastify-app-net
